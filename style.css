@@ -1,0 +1,115 @@
+/* Cuerpo de la aplicacion */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Container principal */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/*Título principal */
+h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #333;
+}
+
+/* Texto informativo */
+p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    text-align: justify;
+}
+
+/* Listas */
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+    text-align: left;
+}
+
+/* Slides */
+.controls {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.control {
+    flex: 1 1 200px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+/* Resultado de la hipótesis */
+.result {
+    font-size: 1.2em;
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 8px;
+}
+
+/* Gráficos */
+.graphs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.graph {
+    flex: 1 1 100%;
+    min-height: 400px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 10px;
+}
+
+/* Pantallas grandes */
+@media (min-width: 768px) {
+    .graph {
+        flex: 1 1 45%;
+        max-width: 100%;
+    }
+}
+
+/* Pantallas pequeñas */
+@media (max-width: 767px) {
+    .graphs {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .graph {
+        flex: 1 1 100%;
+    }
+}
+

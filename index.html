@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distribución Normal Interactiva</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jstat/1.9.4/jstat.min.js"></script>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Intervalos de confianza</h1>
+        <p>Este gráfico interactivo ha sido creado para que puedan visualizar con mayor facilidad el funcionamiento de los intervalos de confianza</p>
+        <p>Algunos puntos a tener en cuenta para interpretar los gráficos:</p>
+        <ul>
+            <li>El primer gráfico muestra la duración promedio en meses de una bateria, para una muestra de n clientes (n=200 por defecto)</li>
+            <li>El segundo gráfico muestra la distribución de los datos de la muestra y la distribucion de los datos poblacionales</li>
+            <li>Hemos trazado dos lineas, en el gráfico 2, para que el usuario vea con facilidad el valor que asume la media muestral y la media poblacional</li>
+            <li>Suponga que usted desconoce los datos de la distribucion poblacional, a los fines de situarse en el ejemplo</li>
+            <li>El área bajo la curva que se encuentra sombreada muestra los intervalos de confianza de su muestra</li>
+        </ul>
+        <h2>Caso de ejemplo*</h2>
+        <p>El propósito de tomar muestras es conocer más acerca de una población. Podemos calcular esta información a partir de las muestras como <b>estimaciones de intervalo</b>. Una estimación de intervalo describe un <b>rango</b> de valores dentro del cual es posible que esté un parámetro de la población. Suponga que el director de estudios de mercado de una fábrica de refacciones automotrices necesita hacer una estimación de la vida promedio de las baterías para automóvil que produce su compañía. Seleccionamos una muestra aleatoria de 200 baterías, registramos el nombre y dirección de los propietarios de los automóviles, como están en los registros de ventas, y entrevistamos a estas personas con respecto a la duración de la batería de su auto. Nuestra muestra de 200 usuarios tiene una vida media de las baterías de 36 meses. Si utilizamos la estimación puntual de la media de la muestra x como el mejor estimador de la media de la población μ, informaríamos que la vida media de las baterías de la empresa es 36 meses</p>
+        <p>Sin embargo, el director también pide una conclusión acerca de la incertidumbre que acompañará a esta estimación. Es decir, se nos pide información acerca del intervalo dentro del cual es probable que esté la media de la población desconocida. Para proporcionar tal afirmación, necesitamos encontrar el error estándar de la media</p>
+        <!-- Contenedor para el resultado de la hipótesis -->
+        <div id="hypothesis-result" class="result">
+                <!-- Acá se muestra el mensaje de aceptación o rechazo de la hipótesis -->
+        </div>
+        <div class="controls">
+            <div class="control">
+                <label for="media-slider">Media muestral:</label>
+                <input type="range" id="media-slider" min="0" max="50" step="0.1" value="36">
+                <span id="media-value">36</span>
+            </div>
+
+            <div class="control">
+                <label for="desviacion-slider">Desviación Estándar:</label>
+                <input type="range" id="desviacion-slider" min="0.1" max="50" step="0.1" value="10">
+                <span id="desviacion-value">10</span>
+            </div>
+
+            <div class="control">
+                <label for="n-slider">Número de Casos:</label>
+                <input type="range" id="n-slider" min="10" max="1000" step="5" value="200">
+                <span id="n-value">200</span>
+            </div>
+
+            <div class="control">
+                <label for="confianza-slider">Intervalo de Confianza (%):</label>
+                <input type="range" id="confianza-slider" min="50" max="99" step="0.001" value="95.55">
+                <span id="confianza-value">95.5</span>
+            </div>
+        </div>
+
+        <div class="graphs">
+            <div id="distribution-graph" class="graph"></div>
+            <div id="pdf-graph" class="graph"></div>
+        </div>
+        <p>*Ejemplo extraído y adaptado de: Levin & Rubin (2004) Estadística Para Administración Y Economía</p>
+    </div>
+</body>
+</html>
